@@ -1,0 +1,22 @@
+ <!-- <button class="btn-add ob-tooltip tooltip-bottom-left" (click)="removeSelectedItem();">
+    Remove Selected Elements
+</button>  -->
+
+<div style="background: white">
+<app-tree-view [tree]="recordsList" 
+(treeElementSelected)="treeElementAdded($event)" [actualRecords]="actualRecords" [checkBoxesRequired]="true" [selectAllParentAndChild]="true"
+[showAddButton]="true" [restrictSelectToLeafNode]="false" [elementsToBeRemoved]="treeElementsToBeRemoved" [toolTipObject]="treeToolTip"
+(menuItemSelected)="menuItemSelected($event)"></app-tree-view>
+</div>
+
+<!-- [contextMenu]="contextMenu" [restrictSelectToSingleNode]="true" [disableSelectedNodes]="false"  [elementsToBeRemoved]="treeElementsToBeRemoved"  
+    [removeSelectedNodes]="true" [selectAllNodes]="true/false" [disableSelect]="true"-->
+
+<!-- (drag)="drag($event)" [nodesDragged]="nodesAdded" -->
+
+
+<!-- Darg and Drop div -->
+<!-- <div class="col main-content no-padding droppable dropping-area">
+              <div class="full-display-block p-rel" (dragover)="makeDroppable($event)" (dragleave)="makeDroppable($event)" (drop)="makeDroppable($event)">
+              </div>
+</div> -->

@@ -1,0 +1,82 @@
+
+<!-- <div class="wrapper-child no-padding margin-top-20"> -->
+    <div class="list-wrapper directory-list selectable-list full-width">
+        <ul class="clearfix">
+            <ng-template #recursiveList let-localTree>
+                <li [ngClass]="{'is-folder': item && item['IsFolder'], 'has-branch expanded': (item['children'] || item['roomTypesLinked'])}"
+                    *ngFor="let item of localTree" (dragstart)="dragStart($event,item)" draggable="true">
+                    <div class="tag-wrapper" [ngClass]="{'hide' : item['selected'] && removeSelectedNodes}">
+                        <a (click)="handleExpandCollapse($event)" [ngClass]="{'selected' : item['selected'], 'disabled-tree-node' : item['selected'] && disableSelectedNodes}">
+                            <div class="row no-gutters">
+                                <div *ngIf="item['CurrencyId']"  [hidden]="hiddenCurrencySymbol" class="currency">
+                                    <span class="currency-label">{{item['currencySymbol']}}</span>
+                                </div>
+                                <div class="form-group" *ngIf="checkBoxesRequired">
+                                    <div class="input-check" (click)="selectCheckMark($event, item)">
+                                        <input type="checkbox" [checked]="item['selected']" [disabled]="item['selected'] && disableSelectedNodes">
+                                        <label></label>
+                                    </div>
+                                </div>
+                                <div class="capsules">
+                                    <i class="icon-directory" *ngIf="item['IsFolder']"></i>
+                                    <span class="status ai-inactive is-inactive" *ngIf="(undefined === item['IsActive'] || null === item['IsActive'] || false === item['IsActive']) && !item['IsFolder']"></span>
+                                    <span class="status ai-active is-active" *ngIf="true === item['IsActive'] && !item['IsFolder']"></span>
+                                    <span class="type-label" *ngIf="item['Tag']">{{item['Tag']}}</span>
+                                    
+                                </div>
+                                <!--===ID: {{item['Id']}}====ParentId: {{item['ParentId']}} -->
+                                <p class="col text-truncate value" *ngIf="item['IsFolder']" id="itemText1" (click)="selectElementFromTree(item, $event);">{{item['Name']}}</p>
+                                <p class="col text-truncate value" *ngIf="!item['IsFolder']" id="itemText2" (click)="selectElementFromTree(item, $event);">{{item['Name']}}</p>
+                            </div>
+                        </a>
+                        <div class="btn-wrapper" *ngIf="contextMenu || showAddButton">
+                            <div *ngIf="showAddButton">
+                                <button class="btn-add ob-tooltip tooltip-bottom-left" id="addButton" (click)="selectElementFromTree(item, $event);">
+                                    <i class="icon-circle-with-plus"></i>
+                                    <span class="tooltip-text adjustance margin-tr-5" *ngIf="item['IsFolder']">{{toolTipObject['addParentToolTip']}}</span>
+                                    <span class="tooltip-text adjustance margin-tr-5" *ngIf="!item['IsFolder']">{{toolTipObject['addChildToolTip']}}</span>
+                                </button>
+                            </div>
+                            <div *ngIf="contextMenu">
+                                <div class="dropdown" *ngIf="contextMenu['childLevelMenu'].length > 0 && !item['IsFolder']">
+                                    <a class="btn-link btn-more-options dropdown-toggle" role="button" id="ui-ob-more-options" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false" (click)="setNodeForMenuItem($event,item)">
+                                        <i class="icon-menu-dots"></i>
+                                    </a>
+                                    <div #childMenu class="dropdown-menu open-left dropdown-custom" aria-labelledby="ui-ob-more-options">
+                                        <ul>
+                                            <li *ngFor="let menuItem of contextMenu['childLevelMenu']">
+                                                <a class="dropdown-item" (click)="menuItemClicked(menuItem['id'])">{{menuItem['menuItem']}}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="dropdown" *ngIf="contextMenu['folderLevelMenu'].length > 0 && item['IsFolder']">
+                                    <a class="btn-link btn-more-options dropdown-toggle" role="button" id="ui-ob-more-options" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false" (click)="setNodeForMenuItem($event, item)">
+                                        <i class="icon-menu-dots"></i>
+                                    </a>
+                                    <div #parentMenu class="dropdown-menu open-left dropdown-custom" aria-labelledby="ui-ob-more-options">
+                                        <ul>
+                                            <li *ngFor="let menuItem of contextMenu['folderLevelMenu']">
+                                                <a class="dropdown-item" (click)="menuItemClicked(menuItem['id'])">{{menuItem['menuItem']}}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <ul *ngIf="item['children'] && item['children'].length > 0">
+                        <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: item['children'] }"></ng-container>
+                    </ul>
+                    <ul *ngIf="item['roomTypesLinked'] && item['roomTypesLinked'].length > 0">
+                        <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: item['roomTypesLinked'] }"></ng-container>
+                    </ul>
+                </li>
+            </ng-template>
+            <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: localTree }"></ng-container>
+        </ul>
+    </div>
+<!-- </div> -->
