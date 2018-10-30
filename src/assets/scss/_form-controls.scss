@@ -1,0 +1,587 @@
+/* ======================================= Form Control Elements Style ======================================= */
+
+.form-control {
+  padding: 0 10px;
+  font-size: $input-font-size;
+  line-height: normal;
+  color: $input-font-color;
+  font-weight: $input-font-weight;
+  background-color: $input-background-color;
+  background-image: none;
+  background-clip: padding-box;
+  border: 1px solid $input-border-color;
+  border-radius: $input-border-radius;
+  height: 32px;
+  &::-webkit-input-placeholder {
+    color: $input-placeholder-color;
+  }
+  &::-moz-placeholder {
+    color: $input-placeholder-color;
+  }
+  &:-ms-input-placeholder {
+    color: $input-placeholder-color;
+  }
+  &:-moz-placeholder {
+    color: $input-placeholder-color;
+  }
+  &:not(:disabled) {
+    &:focus,
+    &:hover,
+    &:active {
+      border-color: $input-focus-border-color;
+      outline: none;
+    }
+  }
+  &:disabled,
+  &:read-only {
+    background-color: $disabled-input-background-color;
+    border-color: $disabled-input-border-color;
+    color: $disabled-input-font-color;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    ~button {
+      cursor: not-allowed;
+    }
+  }
+}
+
+textarea {
+  &.form-control {
+    padding: 7px 10px;
+    height: 128px;
+    resize: none;
+  }
+  &.resize {
+    resize: both;
+  }
+  &.resize-x {
+    resize: vertical;
+  }
+  &.resize-y {
+    resize: horizontal;
+  }
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    @include css3-prefix('appearance', 'none');
+    margin: 0;
+  }
+}
+
+.control-btn-split,
+.control-btn-left {
+  position: relative;
+  .control-btn {
+    background: $control-btn-background-color;
+    padding: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: $control-btn-color;
+    border: 1px solid $input-border-color;
+    position: absolute;
+    text-align: center;
+    z-index: 9;
+    @include transition(border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s);
+  }
+  .form-control {
+    text-align: right;
+  }
+  &:hover {
+    .form-control,
+    .mixed-btn:not(.disabled),
+    .control-btn:not(.disabled) {
+      border-color: $theme-color;
+      @include transition(border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s);
+    }
+  }
+}
+
+.control-btn-left {
+  .control-btn {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 9px;
+    bottom: 4px;
+    @include transition(color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s);
+    &.increment-btn {
+      left: 4px;
+      border-radius: 2px 0 0 2px;
+      &.selected,
+      &:not(.disabled):hover {
+        @include transition(color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s);
+        color: $green;
+      }
+    }
+    &.decrement-btn {
+      left: 27px;
+      border-radius: 0 2px 2px 0;
+      &.selected,
+      &:not(.disabled):hover {
+        @include transition(color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s);
+        color: $red;
+      }
+    }
+    &.disabled {
+      cursor: not-allowed;
+    }
+  }
+  .form-control {
+    &:read-only,
+    &:disabled {
+      ~.control-btn {
+        pointer-events: none;
+        color: $disabled-control-btn-color;
+        border-color: $disabled-control-btn-border-color !important;
+        background: $disabled-control-btn-background-color;
+      }
+    }
+  }
+}
+
+.control-btn-split {
+  .control-btn {
+    font-size: 8px;
+    height: 16px;
+    width: 30px;
+    right: 0;
+    i {
+      line-height: 16px;
+    }
+    &.increment-btn {
+      bottom: 16px;
+      border-radius: 0 2px 0 0;
+      border-bottom: none;
+    }
+    &.decrement-btn {
+      bottom: 0;
+      border-radius: 0 0 2px 0;
+      border-top: none;
+    }
+  }
+  .form-control {
+    padding-right: 39px;
+    &:read-only,
+    &:disabled {
+      ~.control-btn {
+        color: $disabled-control-btn-color;
+        border-color: $disabled-control-btn-border-color !important;
+        background: $disabled-control-btn-background-color;
+      }
+    }
+    &:read-write {
+      &:focus,
+      &:hover,
+      &:active {
+        ~.control-btn {
+          border-color: $input-focus-border-color;
+          @include transition(color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s);
+        }
+      }
+    }
+  }
+}
+
+.mixed-group {
+  .row {
+    width: 100%;
+  }
+  .mixed-btn {
+    height: 32px;
+    font-size: 11px !important;
+    padding: 0;
+    line-height: 30px;
+    border-radius: 0;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    min-width: 32px;
+    max-width: 32px;
+    font-style: italic;
+    @include transition(background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1));
+
+    i {
+      font-size: 14px;
+    }
+    &.btn-default {
+      color: $secondary-text-color;
+    }
+    &:last-child {
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+    +.mixed-btn {
+      margin-left: -1px;
+    }
+    &.btn-default {
+      color: $mixed-btn-color;
+      border-color: $mixed-btn-border-color;
+      background: $mixed-btn-background-color;
+    }
+    &.selected,
+    &.active {
+      color: $mixed-active-btn-color;
+      background-color: $mixed-active-btn-background-color;
+      border-color: $mixed-active-btn-border-color;
+      z-index: 3;
+      &:hover {
+        background: $btn-primary-hover-background-color;
+        border-color: $btn-primary-hover-border-color;
+        @include transition(background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1));
+      }
+    }
+  }
+  .form-control {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-right: none;
+    &:hover,
+    &:focus {
+      ~.mixed-btn {
+        border-color: $mixed-active-btn-border-color;
+      }
+    }
+    &:disabled,
+    &:read-only {
+      ~.mixed-btn {
+        color: $disabled-mixed-btn-color !important;
+        border-color: $disabled-mixed-btn-border-color !important;
+        background: $disabled-mixed-btn-background-color !important;
+        cursor: default;
+        &.active {
+          color: $disabled-mixed-active-btn-color !important;
+          border-color: $disabled-mixed-active-btn-border-color !important;
+          background: $disabled-mixed-active-btn-background-color !important;
+        }
+      }
+    }
+    &:disabled {
+      ~.mixed-btn {
+        cursor: not-allowed;
+      }
+    }
+  }
+  input[type="text"],
+  input[type="number"] {
+    padding: 0 10px;
+    min-width: 0;
+  }
+  input[type="number"] {
+    text-align: right;
+  }
+  &.control-btn-left {
+    input[type="number"] {
+      text-align: right;
+      padding-left: 60px;
+    }
+  }
+  &.single-btn {
+    .mixed-btn {
+      cursor: default;
+    }
+  }
+  &.error {
+    .btn,
+    .form-control {
+      border-color: $red !important;
+    }
+  }
+  &.disabled {
+    .control-btn,
+    .mixed-btn {
+      pointer-events: none;
+      color: #CCCCCC;
+      border-color: #E7E8E9 !important;
+      background: #F6F7F9 !important;
+      i {
+        color: #CCCCCC;
+      }
+    }
+    .mixed-btn {
+      &.selected {
+        background: #CCCCCC !important;
+        color: white !important;
+      }
+    }
+  }
+}
+
+.input-check,
+.input-radio {
+  position: relative;
+  display: inline-block;
+  >label {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 0 !important;
+
+    &.disabled {
+      color: $disabled-input-font-color;
+    }
+
+    &:before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      position: absolute;
+      left: 0;
+      top: 2px;
+      z-index: 9;
+      background: $checkbox-background-color;
+      border: 1px solid $checkbox-border-color;
+      @include transition(0.15s linear);
+    }
+    &:hover {
+      &:before {
+        border-color: $theme-color;
+      }
+    }
+  }
+  input[type="checkbox"],
+  input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+    z-index: 12;
+    left: 0;
+    cursor: pointer;
+    top: 2px;
+    width: 100%;
+    &:hover {
+      ~label {
+        &:before {
+          border-color: $theme-color;
+        }
+      }
+    }
+    &:checked {
+      ~label {
+        &:before {
+          cursor: pointer;
+          border-color: $theme-color;
+          background: $theme-color;
+        }
+        &:after {
+          cursor: pointer;
+          position: absolute;
+          z-index: 10;
+        }
+      }
+    }
+    &.readOnly {
+      opacity: unset;
+      width: auto;
+    }
+
+    &.disabled,
+    &:disabled {
+      cursor: not-allowed;
+      pointer-events: none;
+      ~label {
+        pointer-events: none;
+        &:before {
+          background: $disabled-checkbox-background-color;
+          border-color: $disabled-checkbox-border;
+          pointer-events: none;
+          opacity: 0.3;
+        }
+      }
+      &:checked {
+        ~label {
+          &:before {
+            background: $disabled-checkbox-background-color;
+          }
+        }
+      }
+    }
+  }
+  &.disabled {
+    cursor: not-allowed;
+    input[type="checkbox"],
+    input[type="radio"] {
+      cursor: not-allowed;
+      pointer-events: none;
+      ~label {
+        pointer-events: none;
+        &:before {
+          background: $disabled-checkbox-background-color;
+          border-color: $disabled-checkbox-border;
+          pointer-events: none;
+          opacity: 0.3;
+        }
+      }
+      &:checked {
+        ~label {
+          &:before {
+            background: $disabled-checkbox-background-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.input-check {
+  >label {
+    &:before {
+      border-radius: 2px;
+    }
+    &:after {
+      left: 2px;
+      top: 2px;
+      font-size: 8px;
+    }
+  }
+  input[type="checkbox"] {
+    &:checked {
+      ~label {
+        &:after {
+          content: '\e925';
+          font-family: $icon-font-family;
+          color: $app-text-color;
+        }
+      }
+    }
+  }
+}
+
+.input-radio {
+  >label {
+    &:before {
+      border-radius: 50%;
+    }
+  }
+  input[type="radio"] {
+    &:checked {
+      ~label {
+        &:after {
+          content: '';
+          left: 1px;
+          top: 3px;
+          width: 10px;
+          height: 10px;
+          border: 2px solid white;
+          background: $theme-color;
+          border-radius: 50%;
+        }
+      }
+    }
+    &:disabled {
+      &:checked {
+        ~label {
+          &:after {
+            background: $disabled-checkbox-background-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.required {
+  color: $required-color;
+}
+
+.form-group {
+  margin-bottom: 0;
+  label {
+    font-size: $formgroup-label-font-size;
+    color: $formgroup-label-font-color;
+    font-weight: $formgroup-label-font-weight;
+    margin-bottom: 5px;
+    .secondary-text {
+      margin-left: 10px;
+    }
+    ~.form-group-btn {
+      margin-top: -7px;
+    }
+    &.secondary-font {
+      color: $gold;
+    }
+  }
+
+  &.password-group {
+    position: relative;
+    .form-control {
+      padding-right: 35px;
+    }
+    .password-btn {
+      position: absolute;
+      right: 0px;
+      top: 26px;
+      width: 24px;
+      height: 24px;
+      font-size: 16px;
+      opacity: .2;
+      cursor: pointer;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.error {
+    .form-control {
+      border-color: $red;
+    }
+    &.control-btn-split {
+      .control-btn {
+        border-color: $red !important;
+      }
+    }
+
+    .input-check,
+    .input-radio {
+      label {
+        &:before {
+          border-color: $red;
+        }
+      }
+    }
+  }
+  &.disabled {
+    .form-control {
+      background-color: $disabled-input-background-color;
+      border-color: $disabled-input-border-color;
+      color: $disabled-input-font-color;
+    }
+    .btn {
+      background: $btn-disabled-background-color !important;
+      border-color: $btn-disabled-border-color !important;
+      cursor: not-allowed;
+      color: $btn-disabled-font-color !important;
+      i {
+        color: $btn-disabled-font-color !important;
+      }
+    }
+    &:hover {
+      .form-control {
+        background-color: $disabled-input-background-color;
+        border-color: $disabled-input-border-color;
+        color: $disabled-input-font-color;
+      }
+      .btn {
+        background: $btn-disabled-background-color !important;
+        border-color: $btn-disabled-border-color !important;
+        cursor: not-allowed;
+        color: $btn-disabled-font-color !important;
+        i {
+          color: $btn-disabled-font-color !important;
+        }
+      }
+    }
+  }
+  +.form-group {
+    margin-top: 20px;
+  }
+}
+
+// Password view button remove CSS
+input::-ms-clear,
+input::-ms-reveal {
+  display: none;
+}

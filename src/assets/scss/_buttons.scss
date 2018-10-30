@@ -1,0 +1,652 @@
+/* ======================================= Button Style ======================================= */
+
+.btn {
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  border: $btn-border-width solid transparent;
+  padding: $btn-padding;
+  line-height: $btn-height - ($btn-border-width * 2);
+  height: $btn-height;
+  border-radius: $btn-height / 2;
+  font-size: $btn-font-size;
+  @include transition(background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1));
+
+  &:hover {
+    @include transition(0.2s linear);
+  }
+  &:focus {
+    outline: 0;
+  }
+
+  &.btn-primary {
+    background: $btn-primary-background-color;
+    border-color: $btn-primary-border-color;
+    color: $app-text-color;
+    &:hover {
+      background: $btn-primary-hover-background-color;
+      border-color: $btn-primary-hover-border-color;
+    }
+  }
+
+  &.btn-success {
+    background: $btn-success-background-color;
+    border-color: $btn-success-border-color;
+    &:hover {
+      background: $btn-success-hover-background-color;
+      border-color: $btn-success-hover-border-color;
+    }
+  }
+
+
+  &.btn-warning {
+    background: $btn-warning-background-color;
+    border-color: $btn-warning-border-color;
+    &:hover {
+      background: $btn-warning-hover-background-color;
+      border-color: $btn-warning-hover-border-color;
+    }
+  }
+
+  &.icon-left,
+  &.icon-right {
+    [class^="icon-"],
+    [class^="obi-"] {
+      vertical-align: middle;
+      line-height: $btn-height - 2;
+      font-size: 14px;
+    }
+  }
+  &.icon-left {
+    [class^="icon-"],
+    [class^="obi-"] {
+      margin-right: 8px;
+      float: left;
+    }
+  }
+  &.icon-right {
+    [class^="icon-"],
+    [class^="obi-"] {
+      margin-left: 8px;
+      float: right;
+    }
+  }
+  &.btn-link {
+    border: none;
+    background: none;
+    padding: 0;
+    color: $theme-color;
+    background: transparent !important;
+    &:hover {
+      background: none;
+      span {
+        text-decoration: underline;
+      }
+    }
+    &.btn-primary {
+      color: $theme-color !important;
+    }
+  }
+  &.btn-icon {
+    border: none !important;
+    background: none !important;
+    padding: 0;
+    height: 32px;
+    i {
+      line-height: 32px;
+      font-size: 14px;
+      color: $theme-color;
+    }
+    &:hover {
+      background: none !important;
+    }
+  }
+
+  &.btn-outline {
+    background: $btn-link-bg;
+    border-color: $btn-link-border;
+    color: $btn-link-color;
+    @include transition(0.2s linear);
+    i {
+      color: $btn-link-icon-color;
+      @include transition(0.2s linear);
+    }
+
+    &:hover {
+      background: $btn-outline-background-color;
+      border-color: $btn-outline-border-color;
+      color: $btn-outline-font-color;
+    }
+    &.btn-default {
+      &:hover {
+        @include box-shadow-spread(0, 0, 0, 1px, $btn-outline-box-shadow-color, inset);
+      }
+    }
+    &.btn-warning {
+      background: $btn-warning-background-color;
+      border-color: $btn-warning-border-color;
+      i {
+        color: $secondary-color;
+      }
+      &:hover {
+        background: $btn-warning-background-color;
+        border-color: $btn-warning-border-color;
+        @include box-shadow-spread(0, 0, 0, 1px, $btn-warning-hover-border-color, inset);
+      }
+    }
+    &.hover-fill {
+      &.btn-danger {
+        &:hover {
+          @include transition(0.2s linear);
+          color: $btn-danger-font-color;
+          background: $btn-danger-background-color;
+          border-color: $btn-danger-border-color;
+          i {
+            color: $btn-danger-icon-color;
+            @include transition(0.2s linear);
+          }
+        }
+      }
+      &.btn-success {
+        &:hover {
+          @include transition(0.2s linear);
+          color: $btn-success-font-color;
+          background: $btn-success-background-color;
+          border-color: $btn-success-border-color;
+          i {
+            color: $btn-success-icon-color;
+            @include transition(0.2s linear);
+          }
+        }
+      }
+    }
+  }
+
+  &.on-hover-primary {
+    &:hover {
+      @include transition(0.2s linear);
+      color: $btn-primary-font-color;
+      background: $btn-primary-background-color;
+      border-color: $btn-primary-border-color;
+      box-shadow: none !important;
+      i {
+        color: $btn-primary-icon-color;
+        @include transition(0.2s linear);
+      }
+    }
+  }
+
+  &.on-select-primary {
+    &.selected {
+      box-shadow: none !important;
+      @include transition(0.2s linear);
+      color: $btn-primary-font-color;
+      background: $btn-primary-background-color;
+      border-color: $btn-primary-border-color;
+      box-shadow: none !important;
+      i {
+        color: $btn-primary-icon-color;
+        @include transition(0.2s linear);
+      }
+    }
+  }
+  &.on-select-danger {
+    &.selected {
+      box-shadow: none !important;
+      @include transition(0.2s linear);
+      color: $btn-danger-font-color;
+      background: $btn-danger-background-color;
+      border-color: $btn-danger-border-color;
+      i {
+        color: $btn-danger-icon-color;
+        @include transition(0.2s linear);
+      }
+    }
+  }
+  &.btn-circle {
+    width: $btn-height;
+    padding: 0;
+    text-align: center;
+    line-height: $btn-height;
+    &:hover {
+      @include box-shadow-spread(0, 0, 0, 1px, $btn-outline-box-shadow-color, inset);
+    }
+    &.btn-small {
+      width: 24px;
+      line-height: 24px;
+      height: 24px;
+      font-size: 9px;
+      i {
+        vertical-align: middle;
+      }
+    }
+    &.hover-fill {
+      box-shadow: none;
+    }
+  }
+  &.btn-transparent {
+    background: transparent;
+    &.text-white {
+      color: white;
+    }
+    &:hover {
+      box-shadow: none;
+    }
+  }
+  &.btn-favorite {
+    i {
+      color: $secondary-text-color;
+    }
+    &.favorited {
+      i {
+        color: $theme-color;
+      }
+    }
+  }
+  &.button-favorite {
+    i {
+      color: $ob-disable-text-color;
+    }
+    &.favorited {
+      i {
+        color: $theme-color;
+      }
+    }
+  }
+  &.btn-disabled,
+  &.disabled,
+  &:disabled {
+    background: $btn-disabled-background-color !important;
+    border-color: $btn-disabled-border-color !important;
+    cursor: not-allowed;
+    color: $btn-disabled-font-color !important;
+    i {
+      color: $btn-disabled-font-color !important;
+    }
+    &.btn-link {
+      background: none !important;
+      border: none !important;
+      i,
+      span {
+        color: $btn-link-disabled-font-color !important;
+      }
+    }
+    &:hover,
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+.form-group-btn {
+  .btn {
+    [class^="icon-"],
+    [class^="obi-"],
+    span {
+      vertical-align: middle;
+    }
+    [class^="icon-"],
+    [class^="obi-"] {
+      font-size: 15px;
+      line-height: $btn-height;
+    }
+    span {
+      font-size: 10px;
+    }
+  }
+}
+
+.button-group {
+  .btn,
+  .dropdown {
+    display: inline-block;
+  }
+  .btn {
+    +.btn,
+    +.dropdown {
+      margin-left: 7px;
+    }
+  }
+}
+
+.row-btn-block {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 37px;
+  padding: 5px 15px;
+  box-sizing: border-box;
+  min-width: 153px;
+  text-align: right;
+  background: -moz-linear-gradient(left, rgba(243, 245, 249, 0) 0%, rgba(243, 245, 249, 1) 70%, rgba(243, 245, 249, 1) 100%);
+  background: -webkit-linear-gradient(left, rgba(243, 245, 249, 0) 0%, rgba(243, 245, 249, 1) 70%, rgba(243, 245, 249, 1) 100%);
+  background: linear-gradient(to right, rgba(243, 245, 249, 0) 0%, rgba(243, 245, 249, 1) 70%, rgba(243, 245, 249, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a0f3f5f9', GradientType=1);
+  .row-action-btn {
+    +.row-action-btn {
+      margin-left: 2px;
+    }
+  }
+  .seperator {
+    margin: 0 5px;
+    color: #C8CED1;
+  }
+}
+
+.row-action-btn {
+  font-size: 11px;
+  color: white !important;
+  background: $theme-color !important;
+  vertical-align: middle;
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  text-align: center;
+  i {
+    line-height: 28px;
+    vertical-align: middle;
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      line-height: 26px;
+    }
+    font-size: 12px;
+  }
+  &:hover {
+    background: darken($theme-color, 5%) !important;
+  }
+}
+
+.action-button-panel {
+  padding: 10px 15px;
+  z-index: 99;
+  background: white;
+  height: $action-button-panel-height;
+  .dropdown,
+  .dropup {
+    display: inline-block;
+    margin: 0 5px;
+  }
+  .btn {
+    +.btn {
+      margin-left: 5px;
+    }
+  }
+}
+
+.btn-favorite {
+  text-decoration: none !important;
+  margin-right: 10px;
+  cursor: pointer;
+  i {
+    color: $ob-disable-text-color;
+  }
+  &.favorited {
+    i {
+      color: $rating-star-color;
+      &:before {
+        content: '\E936';
+      }
+    }
+  }
+}
+
+.button-favorite {
+  text-decoration: none !important;
+  margin-right: 10px;
+  cursor: pointer;
+  i {
+    color: $ob-disable-text-color;
+  }
+  &.favorited {
+    i {
+      color: $rating-star-color;
+      &:before {
+        content: '\e915';
+      }
+    }
+  }
+}
+
+.btn-refresh {
+  min-width: 28px;
+  padding: 0;
+  span {
+    display: none;
+    padding-left: 10px;
+  }
+  i {
+    float: right;
+    font-size: 14px;
+    margin: 0 6px;
+    line-height: 26px;
+  }
+  .tooltip-text {
+    z-index: 9995 !important;
+  }
+  &.refreshing {
+    span {
+      display: inline-block !important;
+    }
+    i {
+      color: $theme-color;
+      @include css3-prefix('animation', 'spin .6s infinite linear');
+    }
+  }
+}
+
+.align-with-input {
+  margin: 2px 0;
+}
+
+.btn-options {
+  font-size: 12px;
+
+  i {
+    margin-right: 9px;
+    font-size: 16px;
+    color: #C8CED1;
+  }
+
+  i,
+  span {
+    vertical-align: top;
+  }
+
+  &.seperator {
+    position: relative;
+
+    &:before {
+      position: absolute;
+      content: '';
+      left: 10px;
+      top: 54px;
+      height: 1px;
+      background: #C8CED1;
+      width: 212px;
+    }
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 28px;
+  input {
+    display: none;
+    &:checked {
+      +.slider {
+        background-color: #F6F7F9;
+        &:before {
+          -webkit-transform: translateX(-52px);
+          -ms-transform: translateX(-52px);
+          transform: translateX(-52px);
+          content: "Yes";
+          background-color: #4BAF4F;
+          border: 1px solid #4BAF4F;
+        }
+        &:after {
+          content: "No";
+          text-align: center;
+          color: $secondary-text-color;
+          -webkit-transform: translateX(50px);
+          -ms-transform: translateX(50px);
+          transform: translateX(50px);
+        }
+      }
+    }
+    &:focus {
+      +.slider {
+        @include box-shadow(0, 0, 7px, #F6F7F9);
+      }
+    }
+    &.readOnly {
+      cursor: auto;
+      &:checked {
+        +.slider {
+          background-color: #F6F7F9;
+          &:before {
+            content: "Yes";
+            background-color: #CCCCCC;
+            border: 1px solid #CCCCCC;
+            -webkit-transform: translateX(-52px);
+            -ms-transform: translateX(-52px);
+            transform: translateX(-52px);
+          }
+          &:after {
+            content: "No";
+            text-align: center;
+            color: $secondary-text-color;
+            -webkit-transform: translateX(50px);
+            -ms-transform: translateX(50px);
+            transform: translateX(50px);
+          }
+        }
+      }
+    }
+  }
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #F6F7F9;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border: 1px solid $border-color;
+  &:hover {
+    border: 2px solid $border-color;
+  }
+  &:before {
+    position: absolute;
+    content: "No";
+    text-align: center;
+    color: white;
+    top: 0;
+    width: 50px;
+    left: 50px;
+    bottom: 0;
+    padding-top: 3px;
+    background-color: #FF3838;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border: 1px solid #FF3838;
+    &:hover {
+      border: 2px solid #FF3838;
+    }
+  }
+  &:after {
+    position: absolute;
+    display: block;
+    content: "Yes";
+    padding-top: 4px;
+    text-align: center;
+    color: $secondary-text-color;
+    padding-left: 17px;
+  }
+  &.round {
+    border-radius: 30px;
+    &:before {
+      border-radius: 30px;
+    }
+  }
+  &.readOnly {
+    cursor: auto;
+    &:hover {
+      border: 1px solid $border-color;
+    }
+    &:before {
+      background-color: #CCCCCC;
+      border: 1px solid #CCCCCC;
+    }
+  }
+}
+
+.btn-link {
+  &.btn-remove {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 15px;
+    color: $theme-color !important;
+    vertical-align: middle;
+    i {
+      vertical-align: top;
+    }
+    &:hover {
+      color: darken($theme-color, 5%) !important;
+    }
+  }
+}
+
+.btn-wrapper {
+  .btn {
+    +.btn {
+      margin-left: 10px;
+    }
+  }
+}
+
+.btn-group {
+  .btn {
+    border-radius: 0;
+    &.btn-default {
+      background: #F6F7F9;
+      border-color: #C8CED1;
+      &:hover {
+        @include box-shadow-spread(0, 0, 0, 1px, $btn-outline-box-shadow-color, inset);
+      }
+    }
+    &.selected {
+      background: $btn-primary-background-color;
+      border-color: $btn-primary-border-color;
+      color: $btn-primary-font-color !important;
+      z-index: 99;
+      &:hover {
+        box-shadow: none;
+        background: $btn-primary-hover-background-color;
+        border-color: $btn-primary-hover-border-color;
+      }
+    }
+    &.btn-sm {
+      height: 24px;
+      line-height: 22px;
+    }
+    &:first-child {
+      border-radius: 2px 0 0 2px;
+    }
+    &:last-child {
+      border-radius: 0 2px 2px 0;
+    }
+  }
+}

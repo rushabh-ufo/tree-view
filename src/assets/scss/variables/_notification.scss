@@ -1,0 +1,47 @@
+// Notifications
+$notification-z-index: 1080;
+$notification-border-radius: 3px;
+$notification-font-size: 11px;
+$notification-font-weight: 700;
+$notification-font-color: #FFFFFF;
+$notification-dismiss-button-color: rgba(0,0,0,0.25);
+$notification-dismiss-button-size: 8px;
+$notification-type-icon-size: 14px;
+
+$notification-box-shadow-color: rgba(0,0,0,0.1);
+$notification-box-shadow-x-offset: 0;
+$notification-box-shadow-y-offset: 3px;
+$notification-box-shadow-spread: 2px;
+
+
+$notification-success-icon-color: #40FF7A;
+$notification-success-background-color: #35C962;
+$notification-success-border-color: #2DB557;
+
+$notification-danger-icon-color: #FFAC98;
+$notification-danger-background-color: #FF4D4D;
+$notification-danger-border-color: #FF0000;
+
+$notification-info-icon-color: #6EC2FF;
+$notification-info-background-color: #0C83D9;
+$notification-info-border-color: #0968AD;
+
+$notification-warning-icon-color: #F0CB77;
+$notification-warning-background-color: #D4A427;
+$notification-warning-border-color: #C49721;
+
+// Notification variant maps
+$notification-variant: (
+  success: $notification-success-background-color $notification-success-border-color $notification-success-icon-color,
+  info: $notification-info-background-color $notification-info-border-color $notification-info-icon-color,
+  warning: $notification-warning-background-color $notification-warning-border-color $notification-warning-icon-color,
+  danger: $notification-danger-background-color $notification-danger-border-color $notification-danger-icon-color
+);
+
+// Notification position maps
+$notification-position: (
+  top left: 10px 10px,
+  top right: 10px 10px,
+  bottom left: 10px 10px,
+  bottom right: 10px 10px
+);

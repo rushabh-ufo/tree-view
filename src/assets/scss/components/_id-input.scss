@@ -1,0 +1,101 @@
+.id-input {
+  .id-wrapper {
+    position: relative;
+    .btn-increase,
+    .btn-decrease {
+      background: transparent;
+      border: none;
+      border-left: 1px solid transparent;
+      color: $ob-disable-text-color;
+      cursor: pointer;
+      font-size: 10px;
+      height: 50%;
+      outline: none;
+      right: 0;
+      position: absolute;
+      width: 32px;
+      @include transition(0.15s linear);
+      i {
+        line-height: 12px;
+      }
+    }
+    .btn-increase {
+      top: 0;
+      i {
+        &:before {
+          vertical-align: bottom;
+        }
+      }
+    }
+    .btn-decrease {
+      bottom: 0;
+      i {
+        &:before {
+          vertical-align: top;
+        }
+      }
+    }
+    .form-control {
+      &:focus {
+        ~.btn-increase,
+        ~.btn-decrease {
+          color: $ob-primary-color;
+          border-left-color: $ob-primary-color;
+          @include transition(0.15s linear);
+        }
+      }
+    }
+    &:hover {
+      .form-control {
+        border-color: $ob-primary-color;
+        @include transition(0.15s linear);
+      }
+      .btn-increase,
+      .btn-decrease {
+        color: $ob-primary-color;
+        border-left-color: $ob-primary-color;
+        @include transition(0.15s linear);
+      }
+    }
+  }
+  &.error {
+    .id-wrapper {
+      .form-control {
+        &:focus {
+          ~.btn-increase,
+          ~.btn-decrease {
+            color: $ob-disable-text-color;
+            border-left-color: $ob-error-color;
+            @include transition(0.15s linear);
+          }
+        }
+      }
+    }
+    &:hover {
+      .form-control {
+        border-color: $ob-error-color !important;
+      }
+      .btn-increase,
+      .btn-decrease {
+        color: $ob-disable-text-color;
+        border-left-color: $ob-error-color !important;
+      }
+    }
+  }
+  &.disabled {
+    .id-wrapper {
+      .form-control {
+        border-color: $ob-input-border-color !important;
+        background: $ob-disable-background-color !important;
+        color: $ob-disable-text-color !important;
+        pointer-events: none;
+      }
+      .btn-increase,
+      .btn-decrease {
+        color: $ob-button-border-color !important;
+        border-left-color: transparent !important;
+        pointer-events: none;
+      }
+    }
+  }
+}

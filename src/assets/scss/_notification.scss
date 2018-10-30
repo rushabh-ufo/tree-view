@@ -1,0 +1,82 @@
+/* ======================================= Norification Style ======================================= */
+
+.notification {
+  position: relative;
+  z-index: $notification-z-index;
+  border-radius: $notification-border-radius;
+  max-width: 360px;
+  @include box-shadow($notification-box-shadow-x-offset, $notification-box-shadow-y-offset, $notification-box-shadow-spread, $notification-box-shadow-color);
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 3px;
+    border-radius: $notification-border-radius $notification-border-radius 0 0;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 1070;
+  }
+  .notification-wrapper {
+    padding: 6px 12px;
+    padding-left: 32px;
+    border-radius: $notification-border-radius;
+    .notification-icon {
+      position: absolute;
+      left: 10px;
+      top: 8px;
+      i {
+        font-size: $notification-type-icon-size;
+      }
+    }
+    .dismiss-notification {
+      position: absolute;
+      right: 8px;
+      top: 9px;
+      width: 12px;
+      height: 12px;
+      z-index: 1075;
+      cursor: pointer;
+      line-height: 12px;
+      text-align: center;
+      i {
+        color: $notification-dismiss-button-color;
+        font-size: $notification-dismiss-button-size;
+        vertical-align: middle;
+        font-weight: bold;
+      }
+      &:hover {
+        i {
+          color: rgba(0, 0, 0, 0.7);
+        }
+      }
+    }
+    .notification-message {
+      font-size: $notification-font-size;
+      font-weight: $notification-font-weight;
+      color: $notification-font-color;
+    }
+  }
+  &.dismissible {
+    .notification-wrapper {
+      padding-right: 28px;
+    }
+  }
+
+  @each $postion,
+  $distance in $notification-position {
+    &.#{nth($postion, 1)}-#{nth($postion, 2)} {
+      #{nth($postion, 1)}: #{nth($distance, 1)};
+      #{nth($postion, 2)}: #{nth($distance, 2)};
+    }
+  }
+
+  @each $type,
+  $value in $notification-variant {
+    &.notification-#{$type} {
+      .notification-wrapper {
+        @include notification-variant(#{nth($value, 1)}, #{nth($value, 2)}, #{nth($value, 3)});
+      }
+    }
+  }
+}

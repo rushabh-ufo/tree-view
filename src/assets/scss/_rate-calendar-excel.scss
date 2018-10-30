@@ -1,0 +1,46 @@
+.rce-content-wrapper {
+	.wrapper-header {
+		padding: 10px 20px;
+		.btn-color-info {
+			padding-left: 0;
+			padding-right: 0;
+			border: none;
+			i {
+				font-size: 16px;
+				margin-right: 5px;
+			}
+			i, span {
+				vertical-align: middle;
+			}
+			span {
+				font-size: 10px;
+				font-weight: 700;
+			}
+		}
+		.calendar-control {
+			.date-period {
+				margin: 0;
+				font-size: 13px;
+				font-weight: 700;
+				float: left;
+				margin-right: 10px;
+			}
+			.btn {
+				float: left;
+				line-height: 28px;
+				&.btn-prev {
+					border-radius: 16px 0 0 16px;
+					padding-right: 7px;
+				}
+				&.btn-next {
+					padding-left: 7px;
+					margin-left: -1px;
+					border-radius: 0 16px 16px 0;
+				}
+				&:hover {
+					z-index: 9;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,113 @@
+@import 'mixins/alert';
+@import 'mixins/notification';
+@import 'mixins/modal';
+
+// Adds a browser prefix to the property
+@mixin css3-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+
+// Border Radius
+@mixin border-radius($radius: 5px) {
+  @include css3-prefix('border-radius', $radius);
+}
+
+// Transform
+@mixin transform($params) {
+  @include css3-prefix('transform', $params);
+}
+
+// Transition
+@mixin transition($properties...) {
+  @include css3-prefix('transition', $properties);
+}
+
+// Rotate
+@mixin rotate($deg) {
+  @include css3-prefix('transform', rotate($deg + deg));
+}
+
+// Flex
+@mixin flex() {
+  -ms-flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+// clearfix
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Box Sizing
+@mixin box-sizing($box-model) {
+  @include css3-prefix('box-sizing', $box-model);
+}
+
+/// Box Shadow
+@mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0, 0, 0, 0.2), $inset: "") {
+  @if ($inset !="") {
+    @include css3-prefix('box-shadow', $inset $x $y $blur $color);
+  }
+  @else {
+    @include css3-prefix('box-shadow', $x $y $blur $color);
+  }
+}
+
+/// Spreaded Box Shadow
+@mixin box-shadow-spread($x: 0, $y: 0, $blur: 0, $spread: 0, $color: rgba(0, 0, 0, 0.1), $inset: "") {
+  @if ($inset !="") {
+    @include css3-prefix('box-shadow', $inset $x $y $blur $spread $color);
+  }
+  @else {
+    @include css3-prefix('box-shadow', $x $y $blur $spread $color);
+  }
+}
+
+// Text Truncate
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Keyframes
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+// Animation
+@mixin animation($str) {
+  @include css3-prefix('animation', $str);
+}
+
+/// Background Gradient
+@mixin vertical-gradient($startColor, $endColor) {
+  background: $endColor;
+  background: -webkit-linear-gradient(top, $startColor 0%, $endColor 100%);
+  background: -moz-linear-gradient(top, $startColor 0%, $endColor 100%);
+  background: -ms-linear-gradient(top, $startColor 0%, $endColor 100%);
+  background: linear-gradient(to bottom, $startColor 0%, $endColor 100%);
+}

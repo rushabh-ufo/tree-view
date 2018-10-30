@@ -1,0 +1,23 @@
+.dynamic-tooltip-data {
+    position: fixed;
+    display: none;
+    background-color: $tooltip-background-color;
+    color: $tooltip-font-color;
+    border-radius: $tooltip-border-radius;
+    padding: 6px 10px;
+    z-index: $tooltip-z-index;
+    font-size: $tooltip-font-size;
+    font-weight: $tooltip-font-weight;
+    font-style: normal;
+    pointer-events: none;
+    line-height: 1.4;
+}
+.dynamic-tooltip {
+  position: relative;
+  cursor: pointer;
+    &:hover {
+        ~.dynamic-tooltip-data {
+            display: block;
+        }
+    }
+}

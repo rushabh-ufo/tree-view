@@ -1,0 +1,162 @@
+.form-control {
+  background-clip: padding-box;
+  background-color: white;
+  background-image: none;
+  border: 1px solid $ob-input-border-color;
+  border-radius: 2px;
+  color: $ob-text-color;
+  font-size: 11px;
+  font-weight: 400;
+  height: 32px;
+  padding: 0 10px;
+  line-height: normal;
+  box-sizing: border-box;
+  &::-webkit-input-placeholder {
+    color: $input-placeholder-color;
+  }
+  &::-moz-placeholder {
+    color: $input-placeholder-color;
+  }
+  &:-ms-input-placeholder {
+    color: $input-placeholder-color;
+  }
+  &:-moz-placeholder {
+    color: $input-placeholder-color;
+  }
+  &:hover,
+  &:focus {
+    border-color: $ob-primary-color;
+  }
+}
+
+.combobox {
+  .combo-wrapper {
+    position: relative;
+    .btn-arrow {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      cursor: pointer;
+      width: 30px;
+      padding: 0;
+      text-align: center;
+      line-height: 34px;
+      outline: none;
+      color: $ob-disable-text-color;
+      font-size: 10px;
+      background: transparent;
+      border: none;
+      i {
+        display: inline-block;
+        @include transform(rotate(0deg));
+        @include transition(ease-in-out .15s);
+      }
+    }
+    .btn-clear {
+      background: transparent;
+      border: none;
+      color: $ob-disable-text-color;
+      cursor: pointer;
+      display: none;
+      font-size: 15px;
+      height: 15px;
+      line-height: 15px;
+      outline: none;
+      padding: 0;
+      position: absolute;
+      right: 30px;
+      top: 9px;
+      width: 15px;
+    }
+    .combobox-options {
+      background: white;
+      border-radius: 2px;
+      box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+      display: none;
+      left: 0;
+      position: absolute;
+      top: 100%;
+      width: 100%;
+      z-index: 99;
+      ul {
+        margin: 0;
+        list-style: none;
+        padding: 10px 0;
+        li {
+          background: white;
+          @include transition(0.1s linear);
+          a {
+            display: inline-block;
+            width: 100%;
+            padding: 10px 20px;
+            cursor: pointer;
+          }
+          &.selected,
+          &:hover {
+            background: $ob-hover-background-color;
+            @include transition(0.1s linear);
+          }
+        }
+      }
+    }
+    .form-control {
+      padding-right: 30px;
+      &:hover {
+        ~.btn-arrow {
+          color: $ob-primary-color;
+          i {
+            @include transition(ease-in-out .15s);
+          }
+        }
+      }
+      &:focus {
+        ~.btn-arrow {
+          color: $ob-primary-color;
+          i {
+            @include transform(rotate(180deg));
+            @include transition(ease-in-out .15s);
+          }
+        }
+      }
+    }
+    &.filled {
+      .btn-clear {
+        display: block;
+      }
+    }
+    &.opened {
+      .form-control {
+        border-color: $ob-primary-color;
+        @include transition(ease-in-out .15s);
+      }
+      .btn-arrow {
+        color: $ob-primary-color;
+        i {
+          @include transform(rotate(180deg));
+          @include transition(ease-in-out .15s);
+        }
+      }
+      .combobox-options {
+        display: block;
+      }
+    }
+  }
+  &.disabled {
+    .combo-wrapper {
+      .form-control {
+        border-color: $ob-input-border-color !important;
+        background: $ob-disable-background-color !important;
+        color: $ob-disable-text-color !important;
+        pointer-events: none;
+        ~.btn-arrow {
+          pointer-events: none;
+          color: $ob-disable-text-color !important;
+        }
+        ~.btn-clear {
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}

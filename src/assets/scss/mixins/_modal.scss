@@ -1,0 +1,10 @@
+@mixin modal-variant($value) {
+  .modal-content {
+    border-top: 3px solid $value;
+  }
+  .modal-header {
+    .modal-icon {
+      color: $value;
+    }
+  }
+}

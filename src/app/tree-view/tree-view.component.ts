@@ -9,6 +9,7 @@ import {
     Renderer2,
     SimpleChange,
     ViewChild,
+    AfterViewInit,
 } from '@angular/core';
 import * as _ from 'lodash';
 
@@ -17,7 +18,7 @@ import * as _ from 'lodash';
     'templateUrl': './tree-view.component.html'
 })
 
-export class TreeViewComponent implements OnInit, OnChanges {
+export class TreeViewComponent implements OnInit, OnChanges, AfterViewInit {
 
     @Input()
     public tree: object[];
@@ -97,6 +98,9 @@ export class TreeViewComponent implements OnInit, OnChanges {
     }
     ngOnInit() {
 
+    }
+    ngAfterViewInit(){
+        
     }
     ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
         for (const propName in changes) {

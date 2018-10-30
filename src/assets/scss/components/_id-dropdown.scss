@@ -1,0 +1,91 @@
+.id-dropdown {
+  position: relative;
+  .btn-prev,
+  .btn-next {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    border-radius: 0;
+    z-index: 999;
+    width: 16px;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    text-align: center;
+    line-height: 32px;
+    @include transition(0.2s linear);
+    i {
+      color: $ob-disable-text-color;
+      @include transition(0.2s linear);
+    }
+    &:disabled {
+      background: transparent !important;
+      border: none !important;
+      i {
+        color: $ob-button-border-color !important;
+        @include transition(0.2s linear);
+      }
+      &:hover {
+        background: transparent !important;
+        border: none !important;
+        i {
+          color: $ob-button-border-color !important;
+          @include transition(0.2s linear);
+        }
+      }
+    }
+  }
+  .btn-prev {
+    left: 0;
+  }
+  .btn-next {
+    left: 16px;
+    border-right: 1px solid transparent;
+  }
+  .dropdown {
+    width: 100%;
+    .btn-dropdown {
+      border-radius: 2px;
+      width: 100%;
+      padding: 0 30px 0 40px;
+      height: 32px;
+      position: relative;
+      span {
+        display: block;
+        text-align: right;
+        padding-right: 20px;
+      }
+      i {
+        line-height: 30px;
+        font-size: 10px;
+        position: absolute;
+        right: 10px;
+        top: 0;
+      }
+      &:hover {
+        color: $ob-text-color;
+      }
+    }
+  }
+  &:hover {
+    .dropdown {
+      .btn-dropdown {
+        border-color: $ob-primary-color;
+        color: $ob-text-color;
+        @include transition(0.2s linear);
+      }
+    }
+    .btn-prev,
+    .btn-next {
+      i {
+        color: $ob-primary-color;
+        @include transition(0.2s linear);
+      }
+    }
+    .btn-next {
+      @include transition(0.2s linear);
+      border-right: 1px solid $ob-primary-color;
+    }
+  }
+}

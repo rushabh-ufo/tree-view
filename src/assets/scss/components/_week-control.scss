@@ -1,0 +1,159 @@
+.week-control {
+  .week-wrapper {
+    border: 1px solid transparent;
+    border-radius: 2px;
+    display: inline-block;
+    .btn-add {
+      background: white;
+      outline: none;
+      border: 1px solid $ob-input-border-color;
+      line-height: 22px;
+      height: 24px;
+      width: 24px;
+      text-align: center;
+      color: $ob-text-color;
+      font-weight: 400;
+      font-size: 10px;
+      display: inline-block;
+      margin-right: 2px;
+      border-radius: 2px;
+      cursor: pointer;
+      @include transition(0.2s linear);
+      vertical-align: top;
+      &.remove-btn {
+        color: $ob-disable-text-color;
+      }
+      &:hover {
+        color: $ob-primary-color;
+        border-color: $ob-primary-color;
+        @include transition(0.2s linear);
+      }
+    }
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: inline-block;
+      vertical-align: top;
+      li {
+        float: left;
+        width: 24px;
+        height: 24px;
+        margin-left: -1px;
+        position: relative;
+        @include transition(0.2s linear);
+        label {
+          width: 100%;
+          background: white;
+          border: 1px solid $ob-input-border-color;
+          height: 100%;
+          line-height: 24px;
+          text-align: center;
+          color: $ob-disable-text-color;
+          font-weight: 400;
+          font-size: 10px;
+          cursor: pointer;
+          margin: 0;
+          position: relative;
+          z-index: 9;
+          @include transition(0.2s linear);
+        }
+        i {
+          color: $ob-disable-text-color;
+        }
+        input[type="radio"] {
+          position: absolute;
+          cursor: pointer;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          z-index: 99;
+        }
+        &:first-child {
+          border-radius: 2px 0 0 2px;
+          margin-left: 0;
+          label {
+            border-radius: 2px 0 0 2px;
+          }
+        }
+        &:last-child {
+          border-radius: 2px 0 0 2px;
+          label {
+            border-radius: 0 2px 2px 0;
+          }
+        }
+        &:hover {
+          label {
+            color: $ob-primary-color;
+            border-color: $ob-primary-color;
+            z-index: 10;
+            @include transition(0.2s linear);
+          }
+        }
+        input[type="radio"] {
+          &:checked {
+            ~label {
+              background: $ob-primary-color;
+              border-color: $ob-primary-color;
+              color: white;
+              z-index: 10;
+              @include transition(0.2s linear);
+              &:after {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.error {
+    .week-wrapper {
+      border-color: $ob-error-color;
+    }
+  }
+  &.disabled {
+    .week-wrapper {
+      .btn-add {
+        background: $ob-disable-background-color;
+        border-color: $ob-input-border-color;
+        color: $ob-text-color;
+        pointer-events: none;
+        &:hover {
+          border-color: $ob-input-border-color;
+          color: $ob-text-color;
+        }
+      }
+      ul {
+        li {
+          label {
+            background: $ob-disable-background-color;
+            color: $ob-button-border-color;
+            pointer-events: none;
+          }
+          i {
+            color: $ob-button-border-color;
+          }
+          &:hover {
+            label {
+              color: $ob-button-border-color;
+              border-color: $ob-input-border-color;
+            }
+          }
+          input[type="radio"] {
+            pointer-events: none;
+            &:checked {
+              ~label {
+                background: $ob-button-border-color;
+                border-color: $ob-button-border-color;
+                color: $ob-disable-background-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

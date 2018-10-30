@@ -1,0 +1,61 @@
+// Buttons
+$btn-font-weight: 400;
+$btn-border-width: 1px;
+$btn-padding: 0 10px;
+$btn-height: 28px;
+$btn-font-size: 11px;
+
+
+// Primary Button
+$btn-primary-background-color: $theme-color;
+$btn-primary-border-color: $theme-color;
+$btn-primary-hover-background-color: darken($btn-primary-background-color, 5%);
+$btn-primary-hover-border-color: darken($btn-primary-border-color, 5%);
+$btn-primary-font-color: #FFFFFF;
+$btn-primary-icon-color: #FFFFFF;
+
+// Success Button
+$btn-success-background-color: #4BAF4F;
+$btn-success-border-color: #4BAF4F;
+$btn-success-font-color: #FFFFFF;
+$btn-success-icon-color: #FFFFFF;
+$btn-success-hover-background-color: #409644;
+$btn-success-hover-border-color: #409644;
+
+// Default Button
+$btn-default-border: #C8CED1;
+$btn-default-bg: #FFFFFF;
+$btn-default-color: #000000;
+$btn-default-icon-color: #797F86;
+
+// Danger Button
+$btn-danger-border-color: #FF2E2E;
+$btn-danger-background-color: #FF2E2E;
+$btn-danger-font-color: #FFFFFF;
+$btn-danger-icon-color: #FFFFFF;
+
+// Warning Button
+$btn-warning-border-color: #D4A427;
+$btn-warning-background-color: #FFF1CE;
+$btn-warning-font-color: #000000;
+$btn-warning-icon-color: #D4A427;
+$btn-warning-hover-background-color: #D4A427;
+$btn-warning-hover-border-color: #D4A427;
+
+// Outline Button
+$btn-outline-background-color: #FFFFFF;
+$btn-outline-font-color: #000000;
+$btn-outline-border-color: #CCCCCC;
+$btn-outline-box-shadow-color: #C8CED1;
+
+// Disable Button
+$btn-disabled-background-color: #C8CED1;
+$btn-link-disabled-font-color: #000000;
+$btn-disabled-font-color: #FFFFFF;
+$btn-disabled-border-color: #C8CED1;
+
+// Link Button
+$btn-link-border: #C8CED1;
+$btn-link-bg: #FFFFFF;
+$btn-link-color: #000000;
+$btn-link-icon-color: #797F86;

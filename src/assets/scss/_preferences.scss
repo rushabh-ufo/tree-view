@@ -1,0 +1,114 @@
+.user-preferences-wrapper {
+  .side-section {
+    padding: 0 10px;
+    .list-group-item {
+      vertical-align: middle;
+      font-size: 12px;
+      padding: 15px 10px;
+      border: none;
+      border-bottom: 1px solid #f1f1f1;
+      border-radius: 0;
+
+      i {
+        color: #C8CED1;
+        vertical-align: middle;
+        font-size: 16px;
+        @include transition(0.2s linear);
+      }
+      span {
+        vertical-align: middle;
+        padding-left: 10px;
+        @include transition(0.2s linear);
+      }
+      &.active,
+      &:hover {
+        color: $theme-color;
+        background: transparent;
+        i,
+        span {
+          color: $theme-color;
+          @include transition(0.2s linear);
+        }
+      }
+    }
+  }
+  .main-content {
+    .search-wrapper {
+      border-bottom: 1px solid $border-color;
+    }
+    .page-list-wrapper {
+      padding: 7px 25px;
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        h5 {
+          color: $theme-color;
+          font-size: 11px;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+        li {
+          ul {
+            padding-left: 25px;
+            margin-top: 15px;
+            margin-bottom: 30px;
+            .sub-heading {
+              color: $secondary-text-color;
+              font-size: 11px;
+              font-weight: 700;
+              text-transform: initial;
+            }
+          }
+          +li {
+            margin-top: 12px;
+          }
+          &:last-child {
+            ul {
+              margin-bottom: 0;
+            }
+          }
+        }
+        +ul {
+          margin-top: 25px;
+        }
+      }
+    }
+    .language-options {
+      margin: 15px 0;
+      padding: 0;
+      list-style: none;
+      li {
+        .input-radio {
+          >label {
+            cursor: pointer;
+            img {
+              max-width: 28px;
+              max-height: 28px;
+              border: 1px solid #C8CED1;
+              padding: 2px;
+              margin-right: 7px;
+              border-radius: 50%;
+            }
+            &:before {
+              top: 50%;
+              margin-top: -6px;
+            }
+            &:after {
+              top: 50%;
+              margin-top: -5px;
+            }
+          }
+          input[type="radio"] {
+            top: 0;
+            bottom: 0;
+            height: 100%;
+          }
+        }
+        +li {
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+}

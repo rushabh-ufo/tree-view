@@ -6,7 +6,7 @@
 <app-tree-view [tree]="recordsList" 
 (treeElementSelected)="treeElementAdded($event)" [actualRecords]="actualRecords" [checkBoxesRequired]="true" [selectAllParentAndChild]="true"
 [showAddButton]="true" [restrictSelectToLeafNode]="false" [elementsToBeRemoved]="treeElementsToBeRemoved" [toolTipObject]="treeToolTip"
-(menuItemSelected)="menuItemSelected($event)"></app-tree-view>
+(menuItemSelected)="menuItemSelected($event)"  [contextMenu]="contextMenu"></app-tree-view>
 </div>
 
 <!-- [contextMenu]="contextMenu" [restrictSelectToSingleNode]="true" [disableSelectedNodes]="false"  [elementsToBeRemoved]="treeElementsToBeRemoved"  

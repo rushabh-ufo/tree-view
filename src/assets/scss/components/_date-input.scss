@@ -1,0 +1,137 @@
+.date-input {
+  .date-wrapper {
+    position: relative;
+    .k-datepicker {
+      width: 100%;
+      .k-picker-wrap {
+        background-color: white;
+        border: 1px solid $ob-input-border-color;
+        border-radius: 2px;
+        @include transition(0.15s linear);
+        .k-dateinput-wrap {
+          .k-input {
+            color: $ob-text-color;
+            font-size: 11px;
+            font-weight: 400;
+            height: 30px;
+            padding: 0 10px;
+            line-height: normal;
+          }
+        }
+        .k-select {
+          width: 32px;
+          height: 30px;
+          background: transparent;
+          border: none;
+          border-left: 1px solid transparent;
+          font-size: 16px;
+          line-height: 34px;
+          @include transition(0.15s linear);
+          .k-icon {
+            font-size: 16px;
+            font-family: 'omni-icons' !important;
+            color: $ob-disable-text-color;
+            &:before {
+              content: "\e904";
+            }
+          }
+        }
+        &.k-state-focused {
+          border-color: $ob-primary-color;
+          .k-select {
+            border-left-color: $ob-primary-color;
+            @include transition(0.15s linear);
+          }
+        }
+      }
+    }
+    .btn-date {
+      background: transparent;
+      border: none;
+      border-left: 1px solid transparent;
+      bottom: 0;
+      color: $ob-disable-text-color;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 34px;
+      font-weight: 700;
+      padding: 0;
+      outline: none;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      top: 0;
+      width: 32px;
+      @include transition(0.15s linear);
+    }
+    .form-control {
+      padding-right: 38px;
+      &:focus {
+        ~.btn-date {
+          border-left-color: $ob-primary-color;
+          @include transition(0.15s linear);
+        }
+      }
+    }
+    &:hover {
+      .k-datepicker {
+        .k-picker-wrap {
+          border-color: $ob-primary-color;
+          @include transition(0.15s linear);
+          .k-select {
+            border-left-color: $ob-primary-color;
+            @include transition(0.15s linear);
+          }
+        }
+      }
+      .form-control {
+        border-color: $ob-primary-color;
+        @include transition(0.15s linear);
+      }
+      .btn-date {
+        border-left-color: $ob-primary-color;
+        @include transition(0.15s linear);
+      }
+    }
+  }
+  &.error {
+    .k-datepicker {
+      .k-picker-wrap {
+        border-color: $ob-error-color !important;
+        @include transition(0.15s linear);
+        .k-select {
+          border-left-color: $ob-error-color;
+          @include transition(0.15s linear);
+        }
+      }
+    }
+    .form-control {
+      border-color: $ob-error-color !important;
+      @include transition(0.15s linear);
+      &:focus {
+        ~.btn-date {
+          border-left-color: $ob-error-color;
+          @include transition(0.15s linear);
+        }
+      }
+    }
+    &:hover {
+      .btn-date {
+        border-color: $ob-error-color !important;
+      }
+    }
+  }
+  &.disabled {
+    .form-control {
+      border-color: $ob-input-border-color !important;
+      background: $ob-disable-background-color !important;
+      color: $ob-disable-text-color !important;
+      pointer-events: none;
+    }
+    .btn-date {
+      border-left-color: transparent !important;
+      color: $ob-button-border-color !important;
+      pointer-events: none;
+    }
+  }
+}

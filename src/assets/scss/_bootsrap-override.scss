@@ -1,0 +1,89 @@
+/* ======================================= Bootstrap Style Override ======================================= */
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: $body-bg;
+  font-family: $base-font-family;
+  font-weight: $base-font-weight;
+  font-size: $base-font-size;
+}
+
+* {
+  &::-webkit-scrollbar {
+    width: 11px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $scrollbar-track-background-color;
+    border: 5px solid white;
+  }
+  &::-webkit-scrollbar:horizontal {
+    height: 11px;
+  }
+  &::-webkit-scrollbar-thumb {
+    &:vertical {
+      background: $scrollbar-thumb-background-color;
+      border-left: 3px solid white;
+      border-right: 3px solid white;
+      border-radius: 4px;
+    }
+    &:horizontal {
+      background: $scrollbar-thumb-background-color;
+      border-top: 3px solid white;
+      border-bottom: 3px solid white;
+      border-radius: 4px;
+    }
+  }
+  &::-ms-clear {
+    display: none;
+  }
+}
+
+.clearfix {
+  @include clearfix();
+}
+
+.btn {
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+hr {
+  display: table;
+  width: 100%;
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.no-gutters {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.row {
+  &.row-custom {
+    margin-left: -10px;
+    margin-right: -10px;
+    .col-custom {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}
+
+a {
+  &.disabled,
+  &:disabled {
+    touch-action: none;
+  }
+}

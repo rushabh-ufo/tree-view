@@ -1,0 +1,190 @@
+/* ======================================= Tab Style ======================================= */
+
+.nav-tabs {
+  background: white;
+  .nav-link {
+    font-size: 12px;
+    border: 1px solid $border-color;
+    border-top: 3px solid transparent;
+    border-radius: 0;
+    padding: 0 18px;
+    height: 41px;
+    line-height: 38px;
+    color: black;
+    background: white;
+    border-right: 1px solid transparent !important;
+    border-left: 1px solid transparent !important;
+    font-weight: 700;
+    .btn-close {
+      cursor: pointer;
+      background: transparent;
+      outline: none;
+      border: none;
+      width: 14px;
+      height: 14px;
+      padding: 0;
+      margin-top: -2px;
+      margin-left: 10px;
+      line-height: 14px;
+      vertical-align: middle;
+      i {
+        font-size: 14px;
+        color: transparentize(#323A43, 0.5);
+      }
+    }
+    &:hover {
+      border-top-color: $gold;
+    }
+    &.active {
+      background: white;
+      color: black;
+      border-top-color: $gold;
+      border-right-color: $border-color !important;
+      border-left-color: $border-color !important;
+      border-bottom: none;
+    }
+    &.has-error {
+      color: #FF4D4D;
+    }
+  }
+  .nav-item {
+    &:first-child {
+      .nav-link {
+        border-left: none !important;
+      }
+    }
+  }
+  &.linear-tabs {
+    .nav-item {
+      margin-bottom: 0;
+      line-height: 19px;
+      +.nav-item {
+        margin-left: 38px;
+      }
+    }
+    .nav-link {
+      font-weight: 700;
+      border: none !important;
+      padding: 0;
+      color: black;
+      line-height: 39px;
+      height: 39px;
+      border-bottom: none !important;
+      position: relative;
+      &.active,
+      &:hover {
+        &:after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -1px;
+          height: 2px;
+          right: 0;
+          background: $gold;
+        }
+      }
+    }
+  }
+  &.square-tabs {
+    .nav-link {
+      padding: 0 20px;
+      height: 35px;
+      line-height: 34px;
+      border-top: 1px solid transparent !important;
+      &:first-child {
+        border-left: 1px solid transparent !important;
+      }
+      &:hover {
+        color: $secondary-color;
+      }
+      &.active {
+        border-left: 1px solid #DDE1E3 !important;
+        border-top: 1px solid #DDE1E3 !important;
+        border-right: 1px solid #DDE1E3 !important;
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+.tab-content {
+  -ms-flex: 0 0 100%;
+  -webkit-box-flex: 0;
+  flex: 0 0 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  padding: $tab-content-pading;
+}
+
+.content-area {
+  >.nav-tabs {
+    .nav-link {
+      &.active {
+        background: #F3F5F9;
+      }
+    }
+  }
+  >.tab-content {
+    height: calc(100% - #{$nav-tabs-height});
+    .tab-pane {
+      height: 100%;
+      position: relative;
+      width: 100%;
+    }
+  }
+  &.ob-ui-config-content {
+    >.tab-content {
+      height: 100%;
+    }
+  }
+}
+
+.scrollable-tabs {
+  overflow: hidden;
+  position: relative;
+  padding-right: 58px;
+  .tab-nav-button {
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    bottom: 1px;
+    .tab-nav-btn {
+      background: white;
+      border: 1px solid $border-color;
+      height: 100%;
+      width: 30px;
+      text-align: center;
+      float: left;
+      cursor: pointer;
+      color: $secondary-text-color;
+      outline: none;
+      @include transition(0.2s linear);
+      position: relative;
+      z-index: 9;
+      &:hover {
+        @include transition(0.2s linear);
+        @include box-shadow-spread(0, 0, 0, 1px, $border-color, inset);
+        z-index: 11;
+      }
+      +.tab-nav-btn {
+        margin-left: -2px;
+      }
+      &:last-child {
+        border-radius: 0 4px 0 0;
+      }
+    }
+  }
+  .nav-tabs {
+    display: table;
+    width: 100%;
+    border-bottom-color: white;
+    @include transition(0.2s linear);
+    .nav-item {
+      display: table-cell;
+      .nav-link {
+        white-space: nowrap;
+        text-align: center;
+      }
+    }
+  }
+}

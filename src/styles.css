@@ -1,1 +1,110 @@
-/* You can add global styles to this file, and also import other style files */
+body{background: #fff;font-family: 'Roboto', sans-serif;font-size: 0.8rem;}
+/*-- // Tree // --*/
+.form-group{margin-bottom:0}
+.directory-list-sidebar{width:240px;float:left;padding-right:10px;border-right:1px solid #DDE1E3}
+.directory-list-sidebar .tab-content{padding:0;height:calc(100% - 42px)}
+.directory-list-sidebar .tab-content .tab-pane .content-wrapper{top:0;border:none}
+.directory-list-sidebar .nav-tabs .nav-item{margin-bottom:-1px;margin-right:20px}
+.directory-list-sidebar .nav-tabs .nav-link{font-weight:700;border:none!important;padding:0;color:#000;border-bottom:1px solid #DDE1E3!important;position:relative}
+.directory-list-sidebar .nav-tabs .nav-link.active:after,.directory-list-sidebar .nav-tabs .nav-link:hover:after{content:'';position:absolute;left:0;bottom:-1px;height:2px;right:0;background:#CF990D}
+.directory-list{width:100%}
+.directory-list ul{padding:0;margin:0;list-style:none;width:100%}
+.directory-list ul .tag-wrapper{position:relative;width:100%}
+.directory-list ul .tag-wrapper a{color:#555;display:block;padding:8px 10px 8px 20px;position:relative;cursor:pointer;width:100%;border: 1px #eee solid;margin-bottom: -1px;}
+.directory-list ul .tag-wrapper a i,.directory-list ul .tag-wrapper a .status,.directory-list ul .tag-wrapper a .type-label,.directory-list ul .tag-wrapper a .value{vertical-align:middle}
+.directory-list ul .tag-wrapper a .capsules > i{margin-right:5px}
+.directory-list ul .tag-wrapper a .status{width:2px;height:100%;margin-right:5px;display:inline-block;background:#9A9EA4;position: absolute;left:0;top: 0;bottom: 0;}
+.directory-list ul .tag-wrapper a .status.ai-active{background:#009674}
+.directory-list ul .tag-wrapper a .status.ai-inactive{background:#ff6c6c}
+.directory-list ul .tag-wrapper a .type-label{width:15px;height:15px;padding: 1px 3px;border-radius:2px;margin-right:5px;display:inline-block;color:#fff;background:rgba(12, 131, 217, 0.5);font-size:9px;text-align:center;text-transform:uppercase}
+.directory-list ul .tag-wrapper a .currency-label{width:20px;border-radius:2px;margin-right:7px;display:inline-block;color:#fff;background:#0C83D9;font-size:9px;text-align:center;text-transform:uppercase}
+.directory-list ul .tag-wrapper a .value{margin:0;vertical-align:middle;display:inline-block;line-height:1.6}
+.directory-list ul .tag-wrapper a.selected{background:#f5f6f7}
+.directory-list ul .tag-wrapper .btn-wrapper{opacity:0;position:absolute;z-index:99;background:rgba(255,255,255,0.3);right:0;width:100px;top:0;bottom:0;padding:9px;text-align:right;background:-webkit-gradient(linear,left top,right top,from(rgba(243,245,249,0)),color-stop(70%,#f3f5f9),to(#f3f5f9));background:linear-gradient(to right,rgba(243,245,249,0) 0%,#f3f5f9 70%,#f3f5f9 100%)}
+.directory-list ul .tag-wrapper .btn-wrapper .btn-add{background:transparent;border:none;outline:none;float:right;position:relative;height:15px;padding:0;color:#0C83D9;font-size:16px;cursor:pointer;vertical-align: middle;}
+.directory-list ul .tag-wrapper:hover{background:#F3F5F9}
+.directory-list ul .tag-wrapper:hover .btn-wrapper{opacity:1}
+.directory-list ul li{display:block;width:100%}
+.directory-list ul li.has-branch > .tag-wrapper > a:before{position:absolute;content:"\f167";font-family:"LineAwesome";font-size:8px;left:5px;top:11px;}
+.directory-list ul li.expanded.has-branch > .tag-wrapper > a:before {-webkit-transform: rotate(90deg);transform: rotate(90deg);}
+.directory-list ul li.is-folder > .tag-wrapper > a i{font-size:14px;margin-right:5px;color: #0c83d9;}
+.directory-list ul li.is-folder > .tag-wrapper > a .value{text-transform:uppercase;font-weight:700}
+.directory-list ul li ul{display:none}
+.directory-list ul li ul li.has-branch > .tag-wrapper > a:before{left:15px}
+.directory-list ul li ul li .tag-wrapper a{padding-left:30px}
+.directory-list ul li ul li ul li.has-branch > .tag-wrapper > a:before{left:25px}
+.directory-list ul li ul li ul li .tag-wrapper a{padding-left:42px}
+.directory-list ul li ul li ul li ul li.has-branch > .tag-wrapper > a:before{left:42px}
+.directory-list ul li ul li ul li ul li .tag-wrapper a{padding-left:54px}
+.directory-list ul li ul li ul li ul li ul li.has-branch > .tag-wrapper > a:before{left:54px}
+.directory-list ul li ul li ul li ul li ul li .tag-wrapper a{padding-left:66px}
+.directory-list ul li ul li ul li ul li ul li ul li.has-branch > .tag-wrapper > a:before{left:66px}
+.directory-list ul li ul li ul li ul li ul li ul li .tag-wrapper a{padding-left:78px}
+.directory-list ul li ul li ul li ul li ul li ul li ul li.has-branch > .tag-wrapper > a:before{left:78px}
+.directory-list ul li ul li ul li ul li ul li ul li ul li .tag-wrapper a{padding-left:90px}
+.directory-list ul li ul li ul li ul li ul li ul li ul li ul li.has-branch > .tag-wrapper > a:before{left:90px}
+.directory-list ul li ul li ul li ul li ul li ul li ul li ul li .tag-wrapper a{padding-left:102px}
+.directory-list ul li ul li ul li ul li ul li ul li ul li ul li ul li.has-branch > .tag-wrapper > a:before{left:102px}
+.directory-list ul li ul li ul li ul li ul li ul li ul li ul li ul li .tag-wrapper a{padding-left:114px}
+.directory-list ul li ul li ul li ul li ul li ul li ul li ul li ul li ul li.has-branch > .tag-wrapper > a:before{left:114px}
+.directory-list ul li ul li ul li ul li ul li ul li ul li ul li ul li ul li .tag-wrapper a{padding-left:126px}
+.directory-list ul li ul li ul li ul li ul li ul li ul li ul li ul li ul li ul li.has-branch > .tag-wrapper > a:before{left:126px}
+.directory-list ul li ul li ul li ul li ul li ul li ul li ul li ul li ul li ul li .tag-wrapper a{padding-left:138px}
+.directory-list ul li ul li ul li ul li ul li ul li ul li ul li ul li ul li ul li ul li.has-branch > .tag-wrapper > a:before{left:138px}
+.directory-list ul li ul li ul li ul li ul li ul li ul li ul li ul li ul li ul li ul li .tag-wrapper a{padding-left:150px}
+.directory-list ul li ul li ul li ul li ul li ul li ul li ul li ul li ul li ul li ul li ul li .tag-wrapper a{padding-left:162px}
+.directory-list ul li.expanded > ul{display:block}
+.directory-list.selectable-list .input-check label{vertical-align:top}
+.directory-list.selectable-list ul a .btn-wrapper{top:-1px}
+.directory-list.selectable-list ul .sub-list .input-check label{margin-top:2px}
+.directory-list.filtered-list ul li ul li ul li.has-branch > .tag-wrapper > a:before{left:54px}
+.directory-list.filtered-list ul li ul li ul li .tag-wrapper a{padding-left:64px}
+.directory-list.filtered-list ul li ul li ul li ul li .tag-wrapper a{padding-left:76px}
+.directory-list .dropdown ul{display:block}
+/*-- // Checkbox //--*/
+.input-check,.input-radio{position:relative;display:inline-block}
+.input-check > label,.input-radio > label{position:relative;padding-left:20px;margin-bottom:0!important}
+.input-check > label.disabled,.input-radio > label.disabled{color:#AFAFAF}
+.input-check > label:before,.input-radio > label:before{content:'';width:15px;height:15px;position:absolute;left:0;top:2px;z-index:9;background:#FFF;border:1px solid #C8CED1;-webkit-transition:.15s linear;transition:.15s linear}
+.input-check > label:hover:before,.input-radio > label:hover:before{border-color:#0C83D9}
+.input-check input[type="checkbox"],.input-check input[type="radio"],.input-radio input[type="checkbox"],.input-radio input[type="radio"]{opacity:0;position:absolute;z-index:12;left:0;cursor:pointer;top:2px;width:100%}
+.input-check input[type="checkbox"]:hover ~ label:before,.input-check input[type="radio"]:hover ~ label:before,.input-radio input[type="checkbox"]:hover ~ label:before,.input-radio input[type="radio"]:hover ~ label:before{border-color:#0C83D9}
+.input-check input[type="checkbox"]:checked ~ label:before,.input-check input[type="radio"]:checked ~ label:before,.input-radio input[type="checkbox"]:checked ~ label:before,.input-radio input[type="radio"]:checked ~ label:before{cursor:pointer;border-color:#0C83D9;background:#0C83D9}
+.input-check input[type="checkbox"]:checked ~ label:after,.input-check input[type="radio"]:checked ~ label:after,.input-radio input[type="checkbox"]:checked ~ label:after,.input-radio input[type="radio"]:checked ~ label:after{cursor:pointer;position:absolute;z-index:10}
+.input-check input[type="checkbox"].readOnly,.input-check input[type="radio"].readOnly,.input-radio input[type="checkbox"].readOnly,.input-radio input[type="radio"].readOnly{opacity:unset;width:auto}
+.input-check input[type="checkbox"].disabled,.input-check input[type="checkbox"]:disabled,.input-check input[type="radio"].disabled,.input-check input[type="radio"]:disabled,.input-radio input[type="checkbox"].disabled,.input-radio input[type="checkbox"]:disabled,.input-radio input[type="radio"].disabled,.input-radio input[type="radio"]:disabled{cursor:not-allowed;pointer-events:none}
+.input-check input[type="checkbox"].disabled ~ label,.input-check input[type="checkbox"]:disabled ~ label,.input-check input[type="radio"].disabled ~ label,.input-check input[type="radio"]:disabled ~ label,.input-radio input[type="checkbox"].disabled ~ label,.input-radio input[type="checkbox"]:disabled ~ label,.input-radio input[type="radio"].disabled ~ label,.input-radio input[type="radio"]:disabled ~ label{pointer-events:none}
+.input-check input[type="checkbox"].disabled ~ label:before,.input-check input[type="checkbox"]:disabled ~ label:before,.input-check input[type="radio"].disabled ~ label:before,.input-check input[type="radio"]:disabled ~ label:before,.input-radio input[type="checkbox"].disabled ~ label:before,.input-radio input[type="checkbox"]:disabled ~ label:before,.input-radio input[type="radio"].disabled ~ label:before,.input-radio input[type="radio"]:disabled ~ label:before{background:#F6F7F9;border-color:#CCC;pointer-events:none;opacity:.3}
+.input-check input[type="checkbox"].disabled:checked ~ label:before,.input-check input[type="checkbox"]:disabled:checked ~ label:before,.input-check input[type="radio"].disabled:checked ~ label:before,.input-check input[type="radio"]:disabled:checked ~ label:before,.input-radio input[type="checkbox"].disabled:checked ~ label:before,.input-radio input[type="checkbox"]:disabled:checked ~ label:before,.input-radio input[type="radio"].disabled:checked ~ label:before,.input-radio input[type="radio"]:disabled:checked ~ label:before{background:#F6F7F9}
+.input-check.disabled,.input-radio.disabled{cursor:not-allowed}
+.input-check.disabled input[type="checkbox"],.input-check.disabled input[type="radio"],.input-radio.disabled input[type="checkbox"],.input-radio.disabled input[type="radio"]{cursor:not-allowed;pointer-events:none}
+.input-check.disabled input[type="checkbox"] ~ label,.input-check.disabled input[type="radio"] ~ label,.input-radio.disabled input[type="checkbox"] ~ label,.input-radio.disabled input[type="radio"] ~ label{pointer-events:none}
+.input-check.disabled input[type="checkbox"] ~ label:before,.input-check.disabled input[type="radio"] ~ label:before,.input-radio.disabled input[type="checkbox"] ~ label:before,.input-radio.disabled input[type="radio"] ~ label:before{background:#F6F7F9;border-color:#CCC;pointer-events:none;opacity:.3}
+.input-check.disabled input[type="checkbox"]:checked ~ label:before,.input-check.disabled input[type="radio"]:checked ~ label:before,.input-radio.disabled input[type="checkbox"]:checked ~ label:before,.input-radio.disabled input[type="radio"]:checked ~ label:before{background:#F6F7F9}
+.input-check > label:before{border-radius:2px}
+.input-check > label:after{left:4px;top:3px;font-size:8px}
+.input-check input[type="checkbox"]:checked ~ label:after{content:'\f17b';font-family:"LineAwesome";color:#FFF}
+
+.dropdown.select-status span{position:relative}
+.dropdown.select-status span.status{padding-left:16px}
+.dropdown.select-status span.status:before{content:'';position:absolute;width:8px;height:8px;border-radius:50%;left:0;top:50%;margin-top:-4px}
+.dropdown.select-status span.active:before{background-color:#4BAF4F}
+.dropdown.select-status span.inactive:before{background-color:red}
+.dropdown.select-status .dropdown-toggle i{font-size:12px;margin-left:15px}
+.dropdown.select-status .dropdown-menu li a span{padding-left:25px}
+.dropdown.select-status .dropdown-menu li a span.status:before{width:11px;height:11px;margin-top:-6px}
+.dropdown.select-dropdown{position:relative}
+.dropdown.select-dropdown .btn-clear{margin-right:8px;font-size:13px;line-height:13px;color:#797F86;display:inline-block;width:13px;height:13px;margin-top:8px;position:relative;z-index:99;position:absolute;right:22px;top:2px}
+.dropdown.select-dropdown .btn-clear:hover{color:#0C83D9}
+.dropdown.select-dropdown .dropdown-toggle{cursor:pointer;display:inline-block;width:100%;vertical-align:middle;border-radius:0;height:32px;text-align:left;line-height:30px;padding:0 10px;background:#fff;outline:none;font-size:11px;color:#000;font-weight:400;border:1px solid #C8CED1;border-radius:2px;position:relative;padding-right:30px;-webkit-transition:.2s linear;transition:.2s linear}
+.dropdown.select-dropdown .dropdown-toggle > i{color:#797F86;margin-top:0;position:absolute;right:10px;top:10px;-webkit-transition:.2s linear;transition:.2s linear}
+.dropdown.select-dropdown .dropdown-toggle.select > span{color:#000;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;display:block}
+.dropdown.select-dropdown .dropdown-toggle.select > span.default-value{color:#9A9EA4}
+.dropdown.select-dropdown .dropdown-toggle.disabled{background-color:#F6F7F9;border-color:#E7E8E9;color:#797F86;cursor:not-allowed}
+.dropdown.select-dropdown .dropdown-toggle:not(.disabled):hover{border-color:#0C83D9}
+.dropdown.select-dropdown .dropdown-menu{width:100%}
+.dropdown.select-dropdown .dropdown-menu ul{max-height:360px;overflow:hidden;overflow-y:auto}
+.dropdown.show > .btn.btn-circle,.dropdown.show > .btn.btn-outline,.dropdown.show > .dropdown-toggle.btn-circle,.dropdown.show > .dropdown-toggle.btn-outline{-webkit-box-shadow:inset 0 0 0 1px #C8CED1;-ms-box-shadow:inset 0 0 0 1px #C8CED1;box-shadow:inset 0 0 0 1px #C8CED1}
+.dropdown.show > .btn .icon-arrow-down,.dropdown.show > .dropdown-toggle .icon-arrow-down{-webkit-transform:rotate(180deg);transform:rotate(180deg)}
+.dropdown.show .tooltip-text{display:none}
+.dropdown.show > .select{border-color:#0C83D9}

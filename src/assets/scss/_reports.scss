@@ -1,0 +1,113 @@
+.report-side-section {
+  width: 100%;
+  max-width: 285px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  @include transition(0.2s linear);
+  .collapse-title {
+    z-index: 9;
+    @include transform(rotate(-90deg));
+    transform-origin: top;
+    height: 40px;
+    width: 100px;
+    margin-top: 50px;
+    margin-left: -50px !important;
+    display: none;
+    h3 {
+      margin: 0;
+      font-size: 12px;
+      color: $ob-button-border-color;
+      font-weight: 700;
+      text-align: right;
+    }
+  }
+  .row {
+    &.row-custom {
+      margin-left: -5px;
+      margin-right: -5px;
+    }
+    .col {
+      &.col-custom {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+    }
+  }
+  .scrollable-side-section {
+    padding-bottom: 58px;
+  }
+  .sidebar-toggle {
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    background: white;
+    z-index: 99;
+    border-radius: 0 0 0 3px;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    font-size: 10px;
+    border: 1px solid $border-color;
+    i {
+      line-height: 14px;
+      color: $secondary-text-color;
+      @include transition(0.2s linear);
+      @include transform(rotate(0deg));
+      display: inline-block;
+    }
+    &:hover {
+      i {
+        color: $theme-color;
+      }
+    }
+  }
+  .side-section-title {
+    color: $theme-color;
+    text-transform: uppercase;
+    font-size: 10px;
+  }
+  .fixed-button {
+    background: white;
+    z-index: 99;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    text-align: center;
+    @include box-shadow(0, -3px, 11px, rgba(0, 0, 0, 0.2));
+  }
+  &.collapsed {
+    width: 40px;
+    max-width: 40px;
+    min-width: 40px;
+    padding-top: 50px !important;
+    .collapse-title {
+      display: -ms-flexbox;
+      display: -webkit-box;
+      display: flex;
+    }
+    @include transition(0.2s linear);
+    .fixed-button,
+    .scrollable-side-section,
+    .side-section-title {
+      display: none;
+    }
+    .sidebar-toggle {
+      width: 39px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 3px 0 0 0;
+      border: none;
+      top: 0;
+      right: 0;
+      border-bottom: 1px solid $border-color;
+      i {
+        @include transition(0.2s linear);
+        @include transform(rotate(180deg));
+      }
+    }
+  }
+}

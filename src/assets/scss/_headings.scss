@@ -1,0 +1,93 @@
+/* ======================================= Title & Header Style ======================================= */
+
+.section-title {
+  display: block;
+  border-bottom: 1px solid #444;
+  margin-bottom: 20px;
+  h4 {
+    font-size: $section-title-font-size;
+    color: $section-title-font-color;
+    font-weight: $section-title-font-weight;
+    margin-bottom: 5px;
+  }
+  &.primary {
+    border-bottom-color: $theme-color;
+    h4 {
+      color: $theme-color;
+    }
+  }
+  &.gold {
+    border-bottom-color: $gold;
+    h4 {
+      color: $gold;
+    }
+  }
+  &.no-border {
+    border-bottom: none;
+    h4 {
+      margin-bottom: 0;
+    }
+  }
+  &.has-subtitle {
+    h4,
+    span {
+      display: inline-block;
+    }
+  }
+  &.has-secondary-text {
+    .secondary-text {
+      display: block;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.header-text {
+  p {
+    margin-top: 7px;
+    margin-bottom: 0;
+  }
+}
+
+.sub-header {
+  padding: 5px 0 10px 0;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      padding: 0 10px;
+      display: inline-block;
+      p {
+        color: $ob-button-border-color;
+        margin: 0;
+        font-weight: 700;
+        i {
+          font-size: 10px;
+          margin-top: 2px;
+          vertical-align: middle;
+        }
+      }
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+      +li {
+        position: relative;
+        &:before {
+          content: '';
+          width: 4px;
+          height: 4px;
+          position: absolute;
+          background: $ob-button-border-color;
+          border-radius: 50%;
+          left: -2px;
+          top: 50%;
+          margin-top: -2px;
+        }
+      }
+    }
+  }
+}

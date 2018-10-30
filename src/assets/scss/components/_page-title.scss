@@ -1,0 +1,28 @@
+.page-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: $ob-text-color;
+  margin: 0;
+  &.secondary-color {
+    color: $secondary-color;
+  }
+}
+
+.section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: $ob-text-color;
+  &.secondary-color {
+    color: $secondary-color;
+  }
+}
+
+.group-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: $ob-text-color;
+  margin: 0;
+  &.secondary-color {
+    color: $secondary-color;
+  }
+}

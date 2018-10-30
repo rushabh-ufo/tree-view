@@ -1,0 +1,10 @@
+@mixin notification-variant($background-color, $border-color, $icon-color) {
+  background: $background-color;
+  border: 1px solid $border-color;
+
+  .notification-icon {
+    i {
+      color: $icon-color;
+    }
+  }
+}
