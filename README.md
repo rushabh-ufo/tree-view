@@ -1,27 +1,83 @@
-# TreeView
+# ngx-tree-view
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+ngx tree-view is a tree-view component which supports n-level of nesting with many fancy functionalities around the selection of the nodes.
 
-## Development server
+# Supported frameworks
+  - Angular 2+ (future release will have Angular6 support)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Dependencies
+- lodash
+- line-awesome css
 
-## Code scaffolding
+# Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  - n-levels of nesting supported
+  - multiple options available to selection of a node like checkboxes, item click etc.
+  - highly configurable as per your need
+  - uses no third-party libraries other than lodash
 
-## Build
+Configurations supported:
+  - Configuration for showing checkboxes
+  - Configurable option for propogating selection to parent and child nodes
+  - Restrict selection to single leaf node only
+  - Ability to remove selected nodes
+  - Disabling selection of nodes
+  - Selection of all nodes
+  - Configuration for showing currency symbol
+  - Configuration for showing tags for each node
+  - Ability to disable selection
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+### Installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Treeview requires [Node.js](https://nodejs.org/) v5+ to run.
 
-## Running end-to-end tests
+Install the dependencies and devDependencies and start the server.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```sh
+$ npm install
+$ npm start
+```
 
-## Further help
+For production environments...
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```sh
+$ npm run build
+```
+
+### Input Attributes
+
+Treeview components takes below configuration parameters.
+
+| Attribute | Use | Mandatory | Default |
+| ------ | ------ | -------| -----|
+| actualRecords | Actual list of flat records | Y | NA
+| checkBoxesRequired | To hide/show checkboxes for each node  | N | false
+| selectAllParentAndChild | To auto select parent if all the child are selected and vise-versa | N | true
+| restrictSelectToLeafNode | To restrict selection to leaf node only | N | false
+| elementsToBeRemoved | List of elements to be removed | N | NA
+| restrictSelectToSingleNode | To restrict selection to only one node | N | false
+| disableSelectedNodes | To disbale selection of nodes | N | false
+| removeSelectedNodes | To remove selected nodes from the tree | N | false 
+| selectAllNodes | To selct all nodes | N | false
+| disableSelect | To disbale selection | N | false
+| hiddenCurrencySymbol | To hide label tag | N | false
+
+### Events
+
+| Event | Use | Description
+|--- | ---| --- |
+| treeElementSelected | List of selected nodes | Every time the selection changes, This event is triggered with the slected nodes
+
+
+### Future Scope
+
+- Drag and Drop support
+- Tooltip support
+- Context menu support
+
+
+### Contributors
+1. Rushabh Trivedi - Design and Development
+2. Hinal Parikh - UI/ UX Design and Development
+
