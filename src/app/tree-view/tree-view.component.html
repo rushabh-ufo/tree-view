@@ -24,52 +24,11 @@
                                     <span class="type-label" *ngIf="item['Tag']">{{item['Tag']}}</span>
                                     
                                 </div>
-                                <!--===ID: {{item['Id']}}====ParentId: {{item['ParentId']}} -->
                                 <p class="col text-truncate value" *ngIf="item['IsFolder']" id="itemText1" (click)="selectElementFromTree(item, $event);">{{item['Name']}}</p>
                                 <p class="col text-truncate value" *ngIf="!item['IsFolder']" id="itemText2" (click)="selectElementFromTree(item, $event);">{{item['Name']}}</p>
                             </div>
                         </a>
-                        <div class="btn-wrapper" *ngIf="contextMenu || showAddButton">
-                            <div *ngIf="showAddButton">
-                                <button class="btn-add ob-tooltip tooltip-bottom-left" *ngIf="item['IsFolder']" id="addButton" (click)="selectElementFromTree(item, $event);" data-toggle="tooltip" title="{{toolTipObject['addParentToolTip']}}">
-                                    <i class="la la-plus-circle"></i>                                   
-                                </button>
-                                <button class="btn-add ob-tooltip tooltip-bottom-left" *ngIf="!item['IsFolder']" id="addButton" (click)="selectElementFromTree(item, $event);" data-toggle="tooltip" title="{{toolTipObject['addChildToolTip']}}">
-                                    <i class="la la-plus-circle"></i>                                   
-                                </button>
-                                 <!-- <span class="tooltip-text adjustance margin-tr-5" *ngIf="item['IsFolder']">{{toolTipObject['addParentToolTip']}}</span>
-                                    <span class="tooltip-text adjustance margin-tr-5" *ngIf="!item['IsFolder']">{{toolTipObject['addChildToolTip']}}</span> -->
-                            </div>
-                            <div *ngIf="contextMenu">
-                                <div class="dropdown" *ngIf="contextMenu['childLevelMenu'].length > 0 && !item['IsFolder']">
-                                    <a class="btn-link btn-more-options dropdown-toggle" role="button" id="ui-ob-more-options" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false" (click)="setNodeForMenuItem($event,item)">
-                                        <i class="la la-ellipsis-v"></i>
-                                    </a>
-                                    <div #childMenu class="dropdown-menu open-left dropdown-custom" aria-labelledby="ui-ob-more-options">
-                                        <ul>
-                                            <li *ngFor="let menuItem of contextMenu['childLevelMenu']">
-                                                <a class="dropdown-item" (click)="menuItemClicked(menuItem['id'])">{{menuItem['menuItem']}}</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="dropdown" *ngIf="contextMenu['folderLevelMenu'].length > 0 && item['IsFolder']">
-                                    <a class="btn-link btn-more-options dropdown-toggle" role="button" id="ui-ob-more-options" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false" (click)="setNodeForMenuItem($event, item)">
-                                        <i class="la la-ellipsis-v"></i>
-                                    </a>
-                                    <div #parentMenu class="dropdown-menu open-left dropdown-custom" aria-labelledby="ui-ob-more-options">
-                                        <ul>
-                                            <li *ngFor="let menuItem of contextMenu['folderLevelMenu']">
-                                                <a class="dropdown-item" (click)="menuItemClicked(menuItem['id'])">{{menuItem['menuItem']}}</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        <!-- floating buttons here-->
                     </div>
                     <ul *ngIf="item['children'] && item['children'].length > 0">
                         <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: item['children'] }"></ng-container>
@@ -83,8 +42,3 @@
         </ul>
     </div>
 </div>
-<!-- <script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
-});
-</script> -->

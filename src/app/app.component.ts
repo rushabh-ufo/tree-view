@@ -16,52 +16,6 @@ export class AppComponent implements OnInit {
     public actualRecords: object[] = [];
     public treeElementsToBeRemoved: object[] = [];
     public selectedTreeElements: object[] = [];
-    public contextMenu = {
-        folderLevelMenu: [
-            {
-                id: 'f1',
-                menuItem: 'Create New Rate'
-            },
-            {
-                id: 'f2',
-                menuItem: 'Edit'
-            },
-            {
-                id: 'f3',
-                menuItem: 'Delete'
-            },
-        ],
-        childLevelMenu: [
-            {
-                id: 'c1',
-                menuItem: 'Create Derived Rate'
-            },
-            {
-                id: 'c2',
-                menuItem: 'Edit'
-            },
-            {
-                id: 'c3',
-                menuItem: 'Delete'
-            },
-            {
-                id: 'c4',
-                menuItem: 'Deactivate Rate'
-            },
-            {
-                id: 'c5',
-                menuItem: 'Change History'
-            },
-        ]
-    };
-    public treeToolTip = {
-        addParentToolTip: 'Add All Folder Rates',
-        addChildToolTip: 'Add Rate'
-    };
-
-    public dropableElement: any; // for drag and drop functionality
-    public droppedElements: object[] = []; // for drag and drop functionality
-    public nodesAdded: object[] = []; // for drag and drop functionality
 
     public flatRecords = [
         { 'Id': 1, 'Name': 'test1' },
@@ -100,7 +54,6 @@ export class AppComponent implements OnInit {
         this.currencyLookup = treeData['CurrencyLookup'];
         this.populateCurrencyLookup(treeData['Result']);
 
-        // this.recordsList = _.cloneDeep(this.flatRecords);
         this.recordsList = this.appService.getNestedChildren(this.recordsList, undefined, undefined, 'ParentId', 'Id');
         this.populateFolderLookUp();
         this.recordsListCopy = _.cloneDeep(this.recordsList);
@@ -108,15 +61,8 @@ export class AppComponent implements OnInit {
     }
 
     private populateFolderLookUp() {
-        // console.log('folder lookup: ', this.folderLookup);
         for (let i = 0; i < this.recordsList.length; i++) {
-            // const folderId = this.recordsList[i]['FolderId'];
             const currencyId = this.recordsList[i]['CurrencyId'];
-            // if (folderId) {
-            //     if (this.folderLookup[folderId]) {
-            //         this['recordsList'][i]['folderObj'] = this.folderLookup[folderId];
-            //     }
-            // }
             if (currencyId) {
                 if (this.currencyLookup[currencyId]) {
                     this['recordsList'][i]['currencySymbol'] = this.currencyLookup[currencyId];
@@ -148,40 +94,4 @@ export class AppComponent implements OnInit {
         console.log('Menu clicked: ', event);
     }
 
-    /* put below methods in the parent where actual drop is happening */
-
-    public drag(event) {
-        // console.log(event);
-        if (event['obj']) {
-            this.droppedElements.push(event['obj']);
-        }
-    }
-
-    public drop() {
-        this.nodesAdded = _.cloneDeep(this.droppedElements);
-    }
-
-    public makeDroppable(event) {
-        this.dropableElement = document.querySelector('.droppable');
-        if (event.type === 'dragover') {
-            event.preventDefault();
-            event.stopPropagation();
-            this.dropableElement.classList.add('dragover');
-        }
-
-        if (event.type === 'dragleave') {
-            event.preventDefault();
-            event.stopPropagation();
-            this.dropableElement.classList.remove('dragover');
-        }
-
-        if (event.type === 'drop') {
-            event.preventDefault();
-            event.stopPropagation();
-            this.dropableElement.classList.remove('dragover');
-            console.log('drop called');
-            this.drop();
-        }
-
-    }
 }

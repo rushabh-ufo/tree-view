@@ -244,10 +244,6 @@ export class TreeViewComponent implements OnInit, OnChanges, AfterViewInit {
             }
 
         }
-        // console.log('First ID: ', this.firstSelectedElementId);
-        // console.log('second ID: ', this.secondSelectedElementId);
-        // console.log('Elements selected using ctrl: ', this.nodesSelectedUsingCtrl);
-        // console.log('Event: ', event);
 
     }
 
